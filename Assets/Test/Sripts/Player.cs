@@ -7,6 +7,7 @@ public class Player : Item
 {
    private int lives = 3;
    private int Raw = 0;
+   private float step = 5f;
    [SerializeField] private Image[] hearts;
    [SerializeField] private Sprite aliveHeart;
    [SerializeField] private Sprite deadHeart;
@@ -21,12 +22,14 @@ public class Player : Item
    {
       if (SwipeController.swipeUp && Raw < 1)  //Input.GetKeyDown(KeyCode.UpArrow)
       {
-         SwitchPath(1);
+         direction.y += 1.25f;
+         Raw++;
       }
 
       if (SwipeController.swipeDown && Raw > -1)
       {
-         SwitchPath(-1);
+         direction.y -= 1.25f;
+         Raw--;
       }
 
       if (health > lives)
@@ -38,15 +41,7 @@ public class Player : Item
          else
             hearts[i].sprite = deadHeart;
       }
-
-   }
-
-   private void SwitchPath(int equals)
-   {
-      float YPos = 1.25f * equals;
-      direction.y += YPos;
-      transform.position = direction;
-      Raw += equals;
+      transform.position = Vector3.MoveTowards(transform.position, direction, Time.deltaTime * step);
    }
 
    private void OnCollisionEnter2D(Collision2D other)
