@@ -19,12 +19,12 @@ public class Player : Item
    // Update is called once per frame
    void Update()
    {
-      if (Input.GetKeyDown(KeyCode.UpArrow) && Raw < 1)
+      if (SwipeController.swipeUp && Raw < 1)  //Input.GetKeyDown(KeyCode.UpArrow)
       {
          SwitchPath(1);
       }
 
-      if (Input.GetKeyDown(KeyCode.DownArrow) && Raw > -1)
+      if (SwipeController.swipeDown && Raw > -1)
       {
          SwitchPath(-1);
       }
