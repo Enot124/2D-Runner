@@ -43,7 +43,7 @@ public class Player : Item
 
    private void SwitchPath(int equals)
    {
-      float YPos = 1.3f * equals;
+      float YPos = 1.25f * equals;
       direction.y += YPos;
       transform.position = direction;
       Raw += equals;

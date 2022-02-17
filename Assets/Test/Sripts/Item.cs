@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-   public static float step = 0.1f;
+   public static float speed = -5f;
    public GameObject item;
    public Vector2 direction;
    public int health;
-   public void MoveObject()
+   public Rigidbody2D rb;
+   public void MoveObject(Rigidbody2D rb)
    {
-      direction.x -= step;
-      transform.position = direction;
+      rb.velocity = transform.right * speed;
    }
 
    public void DestroyObject()
    {
-      if (direction.x < -9.5f)  //3.3
+      if (transform.position.x < -9.5f)
          Destroy(this.gameObject);
    }
 }

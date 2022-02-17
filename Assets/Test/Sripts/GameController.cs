@@ -8,9 +8,8 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
    public GameObject[] items;
-   private Vector3 path1;
-   private Vector3 path2;
-   private Vector3 path3;
+   //public GameObject path1, path2, path3;
+   private Vector2 path1, path2, path3;
    private int score;
    public static int coinCount;
    public Text textScore;
@@ -18,21 +17,12 @@ public class GameController : MonoBehaviour
 
    void Start()
    {
-      path1 = new Vector3(9.21f, -1.43f, 0);
-      path2 = new Vector3(9.21f, -2.68f, 0);
-      path3 = new Vector3(9.21f, -3.96f, 0);
+      path1 = new Vector2(9.3f, -0.75f);
+      path2 = new Vector2(9.3f, -2f);
+      path3 = new Vector2(9.3f, -3.25f);
       StartCoroutine(FirstPathItemSpawn());
       StartCoroutine(SecondPathItemSpawn());
       StartCoroutine(ThirdPathItemSpawn());
-   }
-
-   // Update is called once per frame
-   void Update()
-   {
-      if (score > 4000)
-      {
-         Item.step += 0.5f;
-      }
    }
 
    void FixedUpdate()
@@ -40,6 +30,11 @@ public class GameController : MonoBehaviour
       score++;
       textScore.text = score.ToString();
       coinCollected.text = GameController.coinCount.ToString();
+
+      if (score % 1000 == 0)
+      {
+         Item.speed -= 1f;
+      }
    }
 
    private IEnumerator FirstPathItemSpawn()

@@ -6,7 +6,7 @@ public class Box : Item
 {
    void Start()
    {
-      direction = transform.position;
+      rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
    }
    private void Update()
@@ -15,14 +15,14 @@ public class Box : Item
    }
    private void FixedUpdate()
    {
-      MoveObject();
+      MoveObject(rb);
    }
 
    private void OnCollisionEnter2D(Collision2D other)
    {
       if (other.gameObject.tag == "Player")
          GameController.coinCount += 10;
-      else
+      else if (other.gameObject.tag == "Bullet")
          GameController.coinCount += 20;
 
       Destroy(this.gameObject);

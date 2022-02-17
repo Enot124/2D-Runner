@@ -1,30 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Snake : Item
+public class Ammo : Item
 {
    void Start()
    {
       rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
-      health = 3;
    }
    private void Update()
    {
       DestroyObject();
-      if (health == 0)
-         Destroy(this.gameObject);
    }
    private void FixedUpdate()
    {
       MoveObject(rb);
    }
-   private void OnCollisionEnter2D(Collision2D other)
+
+   private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.gameObject.tag == "Player")
+      {
+         Weapon.ammo += 5;
          Destroy(this.gameObject);
-      if (other.gameObject.tag == "Bullet")
-         health--;
+      }
    }
 }

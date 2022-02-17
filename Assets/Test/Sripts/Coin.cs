@@ -7,7 +7,7 @@ public class Coin : Item
 {
    void Start()
    {
-      direction = transform.position;
+      rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
    }
    private void Update()
@@ -16,7 +16,7 @@ public class Coin : Item
    }
    private void FixedUpdate()
    {
-      MoveObject();
+      MoveObject(rb);
    }
 
    private void OnTriggerEnter2D(Collider2D other)

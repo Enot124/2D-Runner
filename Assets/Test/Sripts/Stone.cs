@@ -6,7 +6,7 @@ public class Stone : Item
 {
    void Start()
    {
-      direction = transform.position;
+      rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
    }
    private void Update()
@@ -15,7 +15,7 @@ public class Stone : Item
    }
    private void FixedUpdate()
    {
-      MoveObject();
+      MoveObject(rb);
    }
 
    private void OnCollisionEnter2D(Collision2D other)
