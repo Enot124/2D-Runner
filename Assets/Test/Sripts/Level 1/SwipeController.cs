@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class SwipeController : MonoBehaviour
 {
-   public static bool tap, swipeUp, swipeDown;
+   public static bool swipeUp, swipeDown;
    private bool isDraging = false;
+   public static bool isTouch = false;
    private Vector2 startTouch, swipeDelta;
 
    private void Update()
    {
-      tap = swipeDown = swipeUp = false;
+      swipeDown = swipeUp = isTouch = false;
       #region ПК-версия
       if (Input.GetMouseButtonDown(0))
       {
-         tap = true;
          isDraging = true;
          startTouch = Input.mousePosition;
       }
@@ -30,7 +30,6 @@ public class SwipeController : MonoBehaviour
       {
          if (Input.touches[0].phase == TouchPhase.Began)
          {
-            tap = true;
             isDraging = true;
             startTouch = Input.touches[0].position;
          }

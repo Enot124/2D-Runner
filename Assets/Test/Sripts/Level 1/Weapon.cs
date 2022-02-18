@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 
    void Update()
    {
-      if (Input.GetKeyDown(KeyCode.Space) && ammo > 0)
+      if (Input.touchCount > 0 || Input.GetMouseButtonDown(0) && SwipeController.isTouch && ammo > 0)  //Input.GetKeyDown(KeyCode.Space)
       {
          Shoot();
       }
@@ -22,6 +22,11 @@ public class Weapon : MonoBehaviour
       if (ammo > fullAmmo)
       {
          ammo = fullAmmo;
+      }
+
+      if (ammo < 0)
+      {
+         ammo = 0;
       }
 
       ammoCount.text = ammo + "/" + fullAmmo;
