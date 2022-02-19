@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,12 @@ using UnityEngine;
 public class SwipeController : MonoBehaviour
 {
    public static bool swipeUp, swipeDown;
-   private bool isDraging = false;
    public static bool isTouch = false;
+   private bool isDraging = false;
+
    private Vector2 startTouch, swipeDelta;
+   private DateTime _dtStart = DateTime.UtcNow;
+   private readonly TimeSpan TouchDelay = TimeSpan.FromMilliseconds(100);
 
    private void Update()
    {
@@ -15,11 +19,14 @@ public class SwipeController : MonoBehaviour
       #region ПК-версия
       if (Input.GetMouseButtonDown(0))
       {
+         _dtStart = DateTime.UtcNow;
          isDraging = true;
          startTouch = Input.mousePosition;
       }
       else if (Input.GetMouseButtonUp(0))
       {
+         if (DateTime.UtcNow - _dtStart <= TouchDelay)
+            isTouch = true;
          isDraging = false;
          Reset();
       }
@@ -32,10 +39,13 @@ public class SwipeController : MonoBehaviour
          {
             isDraging = true;
             startTouch = Input.touches[0].position;
+            _dtStart = DateTime.UtcNow;
          }
          else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
          {
             isDraging = false;
+            if (DateTime.UtcNow - _dtStart <= TouchDelay)
+               isTouch = true;
             Reset();
          }
          else if (Input.touches[0].phase == TouchPhase.Stationary)
