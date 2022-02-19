@@ -14,9 +14,10 @@ public class Weapon : MonoBehaviour
 
    void Update()
    {
-      if (Input.touchCount > 0 || Input.GetMouseButtonDown(0) && SwipeController.isTouch && ammo > 0)  //Input.GetKeyDown(KeyCode.Space)
+      if (SwipeController.isTouch)
+      //if (Input.touchCount > 0 || Input.GetMouseButtonDown(0) && SwipeController.isTouch && ammo > 0)  //Input.GetKeyDown(KeyCode.Space)
       {
-         Shoot();
+         TryShoot();
       }
 
       if (ammo > fullAmmo)
@@ -30,6 +31,11 @@ public class Weapon : MonoBehaviour
       }
 
       ammoCount.text = ammo + "/" + fullAmmo;
+   }
+   private void TryShoot()
+   {
+      if (ammo > 0)
+         Shoot();
    }
 
    private void Shoot()
