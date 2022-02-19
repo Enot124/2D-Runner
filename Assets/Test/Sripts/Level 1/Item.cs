@@ -16,7 +16,7 @@ public class Item : MonoBehaviour
 
    public void DestroyObject()
    {
-      if (transform.position.x < -9.5f)
+      if (transform.position.x < -15.5f)
          Destroy(this.gameObject);
    }
 }

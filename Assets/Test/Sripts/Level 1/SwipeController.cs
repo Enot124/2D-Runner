@@ -38,6 +38,10 @@ public class SwipeController : MonoBehaviour
             isDraging = false;
             Reset();
          }
+         else if (Input.touches[0].phase == TouchPhase.Stationary)
+         {
+            isTouch = true;
+         }
       }
       #endregion
 

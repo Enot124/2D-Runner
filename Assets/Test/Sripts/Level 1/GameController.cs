@@ -17,9 +17,9 @@ public class GameController : MonoBehaviour
 
    void Start()
    {
-      path1 = new Vector2(9.3f, -0.75f);
-      path2 = new Vector2(9.3f, -2f);
-      path3 = new Vector2(9.3f, -3.25f);
+      path1 = new Vector2(15f, -0.75f);
+      path2 = new Vector2(15f, -2f);
+      path3 = new Vector2(15f, -3.25f);
       StartCoroutine(FirstPathItemSpawn());
       StartCoroutine(SecondPathItemSpawn());
       StartCoroutine(ThirdPathItemSpawn());
