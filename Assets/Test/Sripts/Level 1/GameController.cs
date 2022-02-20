@@ -10,10 +10,16 @@ public class GameController : MonoBehaviour
    public GameObject[] items;
    //public GameObject path1, path2, path3;
    private Vector2 path1, path2, path3;
-   private int score;
+   private int score, highscore;
    public static int coinCount;
-   public Text textScore;
-   public Text coinCollected;
+   public Text textScore, coinCollected, textHighscore;
+
+   private void Awake()
+   {
+      Reset();
+      if (PlayerPrefs.HasKey("Save score"))
+         highscore = PlayerPrefs.GetInt("Save score");
+   }
 
    void Start()
    {
@@ -27,19 +33,23 @@ public class GameController : MonoBehaviour
 
    void FixedUpdate()
    {
-      score++;
-      textScore.text = score.ToString();
-      coinCollected.text = GameController.coinCount.ToString();
-
-      if (score % 1000 == 0)
+      if (Item.speed != 0)
       {
-         Item.speed -= 1f;
+         AddScore();
+         textScore.text = score.ToString();
+         textHighscore.text = "Highscore: " + highscore.ToString();
+         coinCollected.text = GameController.coinCount.ToString();
+
+         if (score % 1000 == 0)
+         {
+            Item.speed -= 1f;
+         }
       }
    }
 
    private IEnumerator FirstPathItemSpawn()
    {
-      while (true)
+      while (Item.speed != 0)
       {
          float randomPause = Random.Range(1f, 2.5f);
          yield return new WaitForSeconds(randomPause);
@@ -50,7 +60,7 @@ public class GameController : MonoBehaviour
 
    private IEnumerator SecondPathItemSpawn()
    {
-      while (true)
+      while (Item.speed != 0)
       {
          float randomPause = Random.Range(0.5f, 3.5f);
          yield return new WaitForSeconds(randomPause);
@@ -61,12 +71,32 @@ public class GameController : MonoBehaviour
 
    private IEnumerator ThirdPathItemSpawn()
    {
-      while (true)
+      while (Item.speed != 0)
       {
          float randomPause = Random.Range(1.5f, 3f);
          yield return new WaitForSeconds(randomPause);
          int randomItem = Random.Range(0, items.Length);
          Instantiate(items[randomItem], path3, Quaternion.identity);
       }
+   }
+
+   private void AddScore()
+   {
+      score++;
+      HighScore();
+   }
+
+   private void HighScore()
+   {
+      if (score > highscore)
+         highscore = score;
+
+      PlayerPrefs.SetInt("Save score", highscore);
+   }
+
+   private void Reset()
+   {
+      Item.speed = -5f;
+      score = coinCount = 0;
    }
 }

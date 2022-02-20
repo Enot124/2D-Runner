@@ -48,10 +48,6 @@ public class SwipeController : MonoBehaviour
                isTouch = true;
             Reset();
          }
-         else if (Input.touches[0].phase == TouchPhase.Stationary)
-         {
-            isTouch = true;
-         }
       }
       #endregion
 

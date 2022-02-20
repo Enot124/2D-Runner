@@ -11,6 +11,14 @@ public class Player : Item
    [SerializeField] private Image[] hearts;
    [SerializeField] private Sprite aliveHeart;
    [SerializeField] private Sprite deadHeart;
+   public GameObject deathScreen;
+   private bool death;
+
+   private void Awake()
+   {
+      deathScreen.SetActive(false);
+   }
+
    void Start()
    {
       direction = transform.position;
@@ -20,28 +28,32 @@ public class Player : Item
    // Update is called once per frame
    void Update()
    {
-      if (SwipeController.swipeUp && Raw < 1)  //Input.GetKeyDown(KeyCode.UpArrow)
+      if (!death)
       {
-         direction.y += 1.25f;
-         Raw++;
-      }
+         if (SwipeController.swipeUp && Raw < 1)  //Input.GetKeyDown(KeyCode.UpArrow)
+         {
+            direction.y += 1.25f;
+            Raw++;
+         }
 
-      if (SwipeController.swipeDown && Raw > -1)
-      {
-         direction.y -= 1.25f;
-         Raw--;
-      }
+         if (SwipeController.swipeDown && Raw > -1)
+         {
+            direction.y -= 1.25f;
+            Raw--;
+         }
 
-      if (health > lives)
-         health = lives;
-      for (int i = 0; i < hearts.Length; i++)
-      {
-         if (i < health)
-            hearts[i].sprite = aliveHeart;
-         else
-            hearts[i].sprite = deadHeart;
+         transform.position = Vector3.MoveTowards(transform.position, direction, Time.deltaTime * step);
+
+         if (health > lives)
+            health = lives;
+         for (int i = 0; i < hearts.Length; i++)
+         {
+            if (i < health)
+               hearts[i].sprite = aliveHeart;
+            else
+               hearts[i].sprite = deadHeart;
+         }
       }
-      transform.position = Vector3.MoveTowards(transform.position, direction, Time.deltaTime * step);
    }
 
    private void OnCollisionEnter2D(Collision2D other)
@@ -55,10 +67,24 @@ public class Player : Item
       health--;
       if (health == 0)
       {
+         death = true;
          foreach (var h in hearts)
          {
             h.sprite = deadHeart;
          }
+
+         if (!deathScreen.activeSelf)
+         {
+            speed = 0;
+            StartCoroutine(HitCoolDown());
+            deathScreen.SetActive(true);
+
+         }
       }
+   }
+
+   private IEnumerator HitCoolDown()
+   {
+      yield return new WaitForSeconds(0.4f);
    }
 }

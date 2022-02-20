@@ -12,6 +12,10 @@ public class Weapon : MonoBehaviour
    public static int ammo;
    private int fullAmmo = 15;
 
+   private void Awake()
+   {
+      ammo = 0;
+   }
    void Update()
    {
       if (SwipeController.isTouch)
