@@ -97,6 +97,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   health: 0
   rb: {fileID: 0}
+  matBlink: {fileID: 2100000, guid: ffebb49b468f3664ca93639ff9ca262e, type: 2}
 --- !u!1 &4223633968190279308
 GameObject:
   m_ObjectHideFlags: 0

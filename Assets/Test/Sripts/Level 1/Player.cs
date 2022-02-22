@@ -12,10 +12,11 @@ public class Player : Item
    [SerializeField] private Sprite aliveHeart;
    [SerializeField] private Sprite deadHeart;
    public GameObject deathScreen;
-   private bool death;
+   public static bool death;
 
    private void Awake()
    {
+      death = false;
       deathScreen.SetActive(false);
    }
 

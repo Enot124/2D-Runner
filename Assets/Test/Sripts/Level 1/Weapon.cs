@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
    }
    void Update()
    {
-      if (SwipeController.isTouch)
+      if (SwipeController.isTouch && !Player.death)
       //if (Input.touchCount > 0 || Input.GetMouseButtonDown(0) && SwipeController.isTouch && ammo > 0)  //Input.GetKeyDown(KeyCode.Space)
       {
          TryShoot();

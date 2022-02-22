@@ -53,8 +53,7 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(1f, 2.5f);
          yield return new WaitForSeconds(randomPause);
-         int randomItem = Random.Range(0, items.Length);
-         Instantiate(items[randomItem], path1, Quaternion.identity);
+         CreateObject(path1);
       }
    }
 
@@ -64,8 +63,7 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(0.5f, 3.5f);
          yield return new WaitForSeconds(randomPause);
-         int randomItem = Random.Range(0, items.Length);
-         Instantiate(items[randomItem], path2, Quaternion.identity);
+         CreateObject(path2);
       }
    }
 
@@ -75,8 +73,7 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(1.5f, 3f);
          yield return new WaitForSeconds(randomPause);
-         int randomItem = Random.Range(0, items.Length);
-         Instantiate(items[randomItem], path3, Quaternion.identity);
+         CreateObject(path3);
       }
    }
 
@@ -98,5 +95,25 @@ public class GameController : MonoBehaviour
    {
       Item.speed = -5f;
       score = coinCount = 0;
+   }
+
+   private void CreateObject(Vector2 path)
+   {
+      int randomItem = Random.Range(0, 101);
+
+      if (randomItem > 0 && randomItem < 26) //Stone
+         Instantiate(items[0], path, Quaternion.identity);
+
+      if (randomItem > 25 && randomItem < 61) //Coin
+         Instantiate(items[1], path, Quaternion.identity);
+
+      if (randomItem > 60 && randomItem < 93) // Snake
+         Instantiate(items[2], path, Quaternion.identity);
+
+      if (randomItem > 92 && randomItem < 96) //Box
+         Instantiate(items[3], path, Quaternion.identity);
+
+      if (randomItem > 95 && randomItem < 101) //Ammo
+         Instantiate(items[4], path, Quaternion.identity);
    }
 }
