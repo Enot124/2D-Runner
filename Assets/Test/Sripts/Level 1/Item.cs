@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -9,6 +7,7 @@ public class Item : MonoBehaviour
    public Vector2 direction;
    public int health;
    public Rigidbody2D rb;
+
    public void MoveObject(Rigidbody2D rb)
    {
       rb.velocity = transform.right * speed;

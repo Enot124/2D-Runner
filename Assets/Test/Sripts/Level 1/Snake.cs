@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Snake : Item
@@ -7,6 +5,7 @@ public class Snake : Item
    public Material matBlink;
    private Material matDefault;
    private SpriteRenderer spriteRend;
+
    void Start()
    {
       rb = GetComponent<Rigidbody2D>();
@@ -15,14 +14,17 @@ public class Snake : Item
       spriteRend = GetComponentInChildren<SpriteRenderer>();
       matDefault = spriteRend.material;
    }
+
    private void Update()
    {
       DestroyObject();
    }
+
    private void FixedUpdate()
    {
       MoveObject(rb);
    }
+
    private void OnCollisionEnter2D(Collision2D other)
    {
       if (other.gameObject.tag == "Player")

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Coin : Item
 {
@@ -10,10 +7,12 @@ public class Coin : Item
       rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
    }
+
    private void Update()
    {
       DestroyObject();
    }
+
    private void FixedUpdate()
    {
       MoveObject(rb);

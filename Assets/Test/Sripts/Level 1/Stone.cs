@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Stone : Item
@@ -9,10 +7,12 @@ public class Stone : Item
       rb = GetComponent<Rigidbody2D>();
       item = GetComponent<GameObject>();
    }
+
    private void Update()
    {
       DestroyObject();
    }
+
    private void FixedUpdate()
    {
       MoveObject(rb);

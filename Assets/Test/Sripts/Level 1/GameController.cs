@@ -1,14 +1,10 @@
-using System.Net.Mime;
-using System.Net.Sockets;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
    public GameObject[] items;
-   //public GameObject path1, path2, path3;
    private Vector2 path1, path2, path3;
    private int score, highscore;
    public static int coinCount;

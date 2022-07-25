@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SwipeController : MonoBehaviour
@@ -8,7 +6,6 @@ public class SwipeController : MonoBehaviour
    public static bool swipeUp, swipeDown;
    public static bool isTouch = false;
    private bool isDraging = false;
-
    private Vector2 startTouch, swipeDelta;
    private DateTime _dtStart = DateTime.UtcNow;
    private readonly TimeSpan TouchDelay = TimeSpan.FromMilliseconds(100);
@@ -16,6 +13,7 @@ public class SwipeController : MonoBehaviour
    private void Update()
    {
       swipeDown = swipeUp = isTouch = false;
+
       #region ПК-версия
       if (Input.GetMouseButtonDown(0))
       {
@@ -51,7 +49,6 @@ public class SwipeController : MonoBehaviour
       }
       #endregion
 
-      //Просчитать дистанцию
       swipeDelta = Vector2.zero;
       if (isDraging)
       {
@@ -61,10 +58,8 @@ public class SwipeController : MonoBehaviour
             swipeDelta = (Vector2)Input.mousePosition - startTouch;
       }
 
-      //Проверка на пройденность расстояния
       if (swipeDelta.magnitude > 100)
       {
-         //Определение направления
          float y = swipeDelta.y;
          if (y < 0)
             swipeDown = true;
