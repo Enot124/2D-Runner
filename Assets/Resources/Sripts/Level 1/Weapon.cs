@@ -5,7 +5,7 @@ public class Weapon : MonoBehaviour
 {
    public Transform shot;
    public GameObject bullet;
-   public Text ammoCount;
+
    public static int ammo;
    private int _fullAmmo = 15;
 
@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour
    }
    void Update()
    {
-      if (SwipeController.isTouch && !Player.Death)
+      if (SwipeController.isTouch)
       {
          TryShoot();
       }
@@ -25,12 +25,7 @@ public class Weapon : MonoBehaviour
          ammo = _fullAmmo;
       }
 
-      if (ammo < 0)
-      {
-         ammo = 0;
-      }
 
-      ammoCount.text = ammo + "/" + _fullAmmo;
    }
    private void TryShoot()
    {

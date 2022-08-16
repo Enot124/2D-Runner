@@ -1,22 +1,17 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, ICanMove
 {
-   public static float Speed;
-   protected GameObject item;
-   protected Vector2 direction;
-   protected int health;
-   protected Rigidbody2D rigidbody;
+   #region ICanMove
+   public Rigidbody2D Rigidbody { get => _rigidbody; }
+   public float Speed { get => _speed; }
+   private protected float _speed = 5f;
+   private protected Rigidbody2D _rigidbody;
+   #endregion ICanMove
 
-   public void MoveObject(Rigidbody2D rb)
+   private void Start()
    {
-      rb.velocity = transform.right * Speed;
-   }
-
-   public void DestroyObject()
-   {
-      if (transform.position.x < -15.5f)
-         Destroy(this.gameObject);
+      _rigidbody = GetComponent<Rigidbody2D>();
    }
 }
 
