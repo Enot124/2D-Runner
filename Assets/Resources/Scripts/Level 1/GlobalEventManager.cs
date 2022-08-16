@@ -5,8 +5,6 @@ public static class GlobalEventManager
    public static Action OnAmmoPickedUp;
    public static Action OnBoxCollide;
    public static Action OnCoinPickedUp;
-   public static Action OnEnemyCollide;
-   public static Action OnStoneCollide;
 
    public static void SendAmmoPickedUp()
    {

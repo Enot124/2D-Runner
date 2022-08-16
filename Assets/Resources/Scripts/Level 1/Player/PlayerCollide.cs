@@ -9,6 +9,20 @@ public class PlayerCollide : MonoBehaviour, ICollide
       _player = GetComponent<Player>();
    }
 
+   private void OnCollisionEnter2D(Collision2D other)
+   {
+      var colliderGameObject = other.collider.gameObject;
+      if (colliderGameObject.TryGetComponent(out IItem item))
+         item.Accept(this);
+   }
+
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+      var colliderGameObject = other.gameObject;
+      if (colliderGameObject.TryGetComponent(out IItem item))
+         item.Accept(this);
+   }
+
    public void Visit(Ammo ammo)
    {
       GlobalEventManager.SendAmmoPickedUp();
@@ -33,12 +47,5 @@ public class PlayerCollide : MonoBehaviour, ICollide
    {
       Destroy(stone.gameObject);
       _player.TakeDamage();
-   }
-
-   private void OnCollisionEnter2D(Collision2D other)
-   {
-      var colliderGameObject = other.collider.gameObject;
-      if (colliderGameObject.TryGetComponent(out IItem item))
-         item.Accept(this);
    }
 }
