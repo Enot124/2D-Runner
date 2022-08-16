@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveItem : MonoBehaviour
+public class MoveItem
 {
-   // Start is called before the first frame update
-   void Start()
+   public static void Move(ICanMove item, Vector2 direction)
    {
-
-   }
-
-   // Update is called once per frame
-   void Update()
-   {
-
+      item.Rigidbody.MovePosition(item.Rigidbody.position
+           + direction * item.Speed);
    }
 }
