@@ -1,20 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class InstantiateItems : MonoBehaviour
 {
-
-
    public GameObject[] items;
-   private Vector2 _path1, _path2, _path3;
-
-
+   [SerializeField] private Transform _path1;
+   [SerializeField] private Transform _path2;
+   [SerializeField] private Transform _path3;
 
    void Start()
    {
-      _path1 = new Vector2(15f, -0.75f);
-      _path2 = new Vector2(15f, -2f);
-      _path3 = new Vector2(15f, -3.25f);
       StartCoroutine(FirstPathItemSpawn());
       StartCoroutine(SecondPathItemSpawn());
       StartCoroutine(ThirdPathItemSpawn());
@@ -26,7 +21,7 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(1f, 2.5f);
          yield return new WaitForSeconds(randomPause);
-         CreateObject(_path1);
+         CreateObject(_path1.position);
       }
    }
 
@@ -36,7 +31,7 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(0.5f, 3.5f);
          yield return new WaitForSeconds(randomPause);
-         CreateObject(_path2);
+         CreateObject(_path2.position);
       }
    }
 
@@ -46,10 +41,9 @@ public class GameController : MonoBehaviour
       {
          float randomPause = Random.Range(1.5f, 3f);
          yield return new WaitForSeconds(randomPause);
-         CreateObject(_path3);
+         CreateObject(_path3.position);
       }
    }
-
 
    private void CreateObject(Vector2 path)
    {
