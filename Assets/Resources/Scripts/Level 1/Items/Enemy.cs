@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : Item, IHaveHealth
+public class Enemy : Item, IHaveHealth, IItem
 {
    [SerializeField] private Material _matBlink;
    private Material _matDefault;
@@ -42,4 +42,6 @@ public class Enemy : Item, IHaveHealth
    {
       Destroy(this.gameObject);
    }
+
+   public void Accept(ICollide collide) => collide.Visit(this);
 }

@@ -23,4 +23,5 @@ public class Player : MonoBehaviour, IHaveHealth
    {
       _animator.SetBool("isDead", true);
    }
+
 }

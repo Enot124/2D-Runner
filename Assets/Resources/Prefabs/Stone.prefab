@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1328521249949736833}
   - component: {fileID: 8097728500521751633}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 2540556021397727859}
   - component: {fileID: 4379242729421412964}
   - component: {fileID: 4956800149852081254}
-  - component: {fileID: 552394490249594684}
-  m_Layer: 0
+  - component: {fileID: 6264003463377851611}
+  m_Layer: 8
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 6
---- !u!114 &552394490249594684
+--- !u!114 &6264003463377851611
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,6 +165,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8222152866385719187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14254aab98127948ae8025aef566317, type: 3}
+  m_Script: {fileID: 11500000, guid: 37e5a4b3649434840928a5071170a909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

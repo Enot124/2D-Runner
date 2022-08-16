@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 613803024}
   - component: {fileID: 613803023}
   - component: {fileID: 613803028}
+  - component: {fileID: 613803029}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -852,6 +853,18 @@ MonoBehaviour:
   - {fileID: 1467691179}
   - {fileID: 986416870}
   - {fileID: 1522182961}
+--- !u!114 &613803029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613803020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49f82bb28f73544691e9aa1e7e64058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &810331923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1797,7 @@ GameObject:
   - component: {fileID: 1527507250}
   - component: {fileID: 1527507249}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: Instantiate Items
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,12 +1815,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312f8ccdf7dd6284b81b5ec5d56f5d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items:
-  - {fileID: 8222152866385719187, guid: 1242431116365c84cb4ab045dff57ec0, type: 3}
-  - {fileID: 3958828412309003375, guid: 83148ab8bebe760439a472c8fb8d7515, type: 3}
-  - {fileID: 22922847193514796, guid: 2200cc2beed54a1479cb9557333ea68e, type: 3}
-  - {fileID: 7563667040589984952, guid: 67a722597f5659541af25142c8fc0303, type: 3}
-  - {fileID: 5387605639249535641, guid: d1938552676010540a8673f62c3a779f, type: 3}
+  _items:
+  - {fileID: 6264003463377851611, guid: 1242431116365c84cb4ab045dff57ec0, type: 3}
+  - {fileID: -2901498903645706528, guid: 83148ab8bebe760439a472c8fb8d7515, type: 3}
+  - {fileID: 4504679374631391870, guid: 2200cc2beed54a1479cb9557333ea68e, type: 3}
+  - {fileID: -7639236986729261887, guid: 67a722597f5659541af25142c8fc0303, type: 3}
+  - {fileID: 1865900372394119790, guid: d1938552676010540a8673f62c3a779f, type: 3}
   _path1: {fileID: 1603196783}
   _path2: {fileID: 1539148848}
   _path3: {fileID: 1700629032}

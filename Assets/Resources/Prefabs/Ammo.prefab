@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9202215313370214121}
   - component: {fileID: 7276381268943742119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,10 +95,10 @@ GameObject:
   - component: {fileID: 4199149506315269626}
   - component: {fileID: 3814921315641849428}
   - component: {fileID: 7001704076633077624}
-  - component: {fileID: 7549321157226569602}
-  m_Layer: 0
+  - component: {fileID: 1865900372394119790}
+  m_Layer: 3
   m_Name: Ammo
-  m_TagString: Help
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33791637, y: 0.73386836}
   m_EdgeRadius: 0
---- !u!114 &7549321157226569602
+--- !u!114 &1865900372394119790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,6 +175,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5387605639249535641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14254aab98127948ae8025aef566317, type: 3}
+  m_Script: {fileID: 11500000, guid: f0bfc4cfa92874e478888d87458e946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

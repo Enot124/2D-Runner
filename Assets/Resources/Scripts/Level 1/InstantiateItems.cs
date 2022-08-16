@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InstantiateItems : MonoBehaviour
 {
-   public GameObject[] items;
+   [SerializeField] private Item[] _items;
    [SerializeField] private Transform _path1;
    [SerializeField] private Transform _path2;
    [SerializeField] private Transform _path3;
@@ -50,18 +50,18 @@ public class InstantiateItems : MonoBehaviour
       int randomItem = Random.Range(0, 101);
 
       if (randomItem > 0 && randomItem < 26) //Stone
-         Instantiate(items[0], path, Quaternion.identity);
+         Instantiate(_items[0], path, Quaternion.identity);
 
       if (randomItem > 25 && randomItem < 61) //Coin
-         Instantiate(items[1], path, Quaternion.identity);
+         Instantiate(_items[1], path, Quaternion.identity);
 
-      if (randomItem > 60 && randomItem < 93) // Snake
-         Instantiate(items[2], path, Quaternion.identity);
+      if (randomItem > 60 && randomItem < 93) // Enemy
+         Instantiate(_items[2], path, Quaternion.identity);
 
       if (randomItem > 92 && randomItem < 96) //Box
-         Instantiate(items[3], path, Quaternion.identity);
+         Instantiate(_items[3], path, Quaternion.identity);
 
       if (randomItem > 95 && randomItem < 101) //Ammo
-         Instantiate(items[4], path, Quaternion.identity);
+         Instantiate(_items[4], path, Quaternion.identity);
    }
 }

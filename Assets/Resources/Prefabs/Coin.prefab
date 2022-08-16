@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3958828412309003370}
   - component: {fileID: 3958828412309003373}
   - component: {fileID: 3958828412309003372}
-  - component: {fileID: 9081043071512551282}
-  m_Layer: 0
+  - component: {fileID: -2901498903645706528}
+  m_Layer: 3
   m_Name: Coin
   m_TagString: Help
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.22062242}
   serializedVersion: 2
   m_Radius: 0.23299372
---- !u!114 &9081043071512551282
+--- !u!114 &-2901498903645706528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3958828412309003375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b14254aab98127948ae8025aef566317, type: 3}
+  m_Script: {fileID: 11500000, guid: 45c1db619990b7c4d8f89fdf9664c317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3958828412486589257
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3958828412486589302}
   - component: {fileID: 3958828412486589303}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

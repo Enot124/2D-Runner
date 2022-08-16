@@ -19,4 +19,8 @@ public class PlayerMove : MonoBehaviour
       }
       transform.position = Vector3.MoveTowards(transform.position, _raws[_currentRaw].position, Time.deltaTime * _speed);
    }
+
+   private void OnCollisionEnter2D(Collision2D other)
+   {
+   }
 }
