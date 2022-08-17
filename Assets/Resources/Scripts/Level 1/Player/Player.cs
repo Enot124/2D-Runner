@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, IHaveHealth
    public void TakeDamage()
    {
       _lives--;
+      GlobalEventManager.SendHealthChanged();
       if (_lives == 0)
          Die();
    }

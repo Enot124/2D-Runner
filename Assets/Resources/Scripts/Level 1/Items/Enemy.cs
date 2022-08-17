@@ -21,11 +21,6 @@ public class Enemy : Item, IHaveHealth, IItem
       if (other.gameObject.tag == "Bullet")
       {
          TakeDamage();
-
-         if (_lives == 0)
-            Die();
-         else
-            Invoke("ResetMaterial", .15f);
       }
    }
    private void ResetMaterial()
@@ -37,6 +32,10 @@ public class Enemy : Item, IHaveHealth, IItem
    {
       _lives--;
       _spriteRend.material = _matBlink;
+      if (_lives <= 0)
+         Die();
+      else
+         Invoke("ResetMaterial", .15f);
    }
    public void Die()
    {

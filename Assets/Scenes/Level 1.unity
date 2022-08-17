@@ -430,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422611060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.06400013, y: -0.055999994, z: 0}
+  m_LocalPosition: {x: 0.489, y: -0.055999994, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -760,8 +760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1f3599c789a5a48a7a8f44abb3614a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 422611061}
-  bullet: {fileID: 1377123534682927830, guid: 11c63031123fc2c4c8e90848f015dde6, type: 3}
+  _shot: {fileID: 422611061}
+  _bullet: {fileID: 1377123534682927830, guid: 11c63031123fc2c4c8e90848f015dde6, type: 3}
 --- !u!95 &613803025
 Animator:
   serializedVersion: 4
@@ -1369,7 +1369,9 @@ MonoBehaviour:
   _textCoin: {fileID: 1845540626}
   _textHighscore: {fileID: 238125839}
   _textAmmo: {fileID: 1445371184}
+  _weapon: {fileID: 613803024}
   _deathScreen: {fileID: 2079233922}
+  _player: {fileID: 613803023}
   hearts:
   - {fileID: 1946454209}
   - {fileID: 1831723608}
@@ -1953,7 +1955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10/25
+  m_text: 0/20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
