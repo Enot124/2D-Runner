@@ -6,6 +6,15 @@ public class PlayerMove : MonoBehaviour
    private int _currentRaw = 1;
    private float _speed = 5f;
 
+   private void Awake()
+   {
+      GlobalEventManager.OnPlayerDied += StopPlayerMove;
+   }
+
+   private void OnDisable()
+   {
+      GlobalEventManager.OnPlayerDied -= StopPlayerMove;
+   }
    void Update()
    {
       if (SwipeController.swipeUp && (_currentRaw > 0))
@@ -20,7 +29,9 @@ public class PlayerMove : MonoBehaviour
       transform.position = Vector3.MoveTowards(transform.position, _raws[_currentRaw].position, Time.deltaTime * _speed);
    }
 
-   private void OnCollisionEnter2D(Collision2D other)
+   private void StopPlayerMove()
    {
+      Destroy(this);
    }
+
 }

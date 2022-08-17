@@ -1260,6 +1260,10 @@ GameObject:
   - component: {fileID: 885120498}
   - component: {fileID: 885120497}
   - component: {fileID: 885120501}
+  - component: {fileID: 885120505}
+  - component: {fileID: 885120504}
+  - component: {fileID: 885120503}
+  - component: {fileID: 885120502}
   m_Layer: 5
   m_Name: Interface
   m_TagString: Untagged
@@ -1365,12 +1369,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61888ce5d670acf469ed90a377c08fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textScore: {fileID: 659638646}
-  _textCoin: {fileID: 1845540626}
-  _textHighscore: {fileID: 238125839}
-  _textAmmo: {fileID: 1445371184}
-  _weapon: {fileID: 613803024}
   _deathScreen: {fileID: 2079233922}
+--- !u!114 &885120502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885120496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 644fb3469dad56549a5b91cfaf1d66d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textScore: {fileID: 659638646}
+  _textHighscore: {fileID: 238125839}
+--- !u!114 &885120503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885120496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db19b5bc2d7966d41b9621c38ca70e8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _player: {fileID: 613803023}
   hearts:
   - {fileID: 1946454209}
@@ -1378,6 +1403,33 @@ MonoBehaviour:
   - {fileID: 63302162}
   aliveHeart: {fileID: 21300000, guid: b2e30bd1f25a5654396ac747bef64927, type: 3}
   deadHeart: {fileID: 21300000, guid: 07033f6caec6ce94da05c2e5cf05a051, type: 3}
+--- !u!114 &885120504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885120496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196714a4aa0d8b449b347a83d4b25802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textCoin: {fileID: 1845540626}
+--- !u!114 &885120505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885120496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6e795545c90472438b03a1f30d4e1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textAmmo: {fileID: 1445371184}
+  _weapon: {fileID: 613803024}
 --- !u!1 &975858542
 GameObject:
   m_ObjectHideFlags: 0

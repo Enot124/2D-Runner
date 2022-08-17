@@ -23,6 +23,7 @@ public class Player : MonoBehaviour, IHaveHealth
    public void Die()
    {
       _animator.SetBool("isDead", true);
+      GlobalEventManager.SendPlayerDied();
    }
 
 }

@@ -13,6 +13,12 @@ public class InstantiateItems : MonoBehaviour
       StartCoroutine(FirstPathItemSpawn());
       StartCoroutine(SecondPathItemSpawn());
       StartCoroutine(ThirdPathItemSpawn());
+
+      GlobalEventManager.OnPlayerDied += StopInstantiate;
+   }
+   private void OnDisable()
+   {
+      GlobalEventManager.OnPlayerDied -= StopInstantiate;
    }
 
    private IEnumerator FirstPathItemSpawn()
@@ -50,18 +56,34 @@ public class InstantiateItems : MonoBehaviour
       int randomItem = Random.Range(0, 101);
 
       if (randomItem > 0 && randomItem < 26) //Stone
+      {
          Instantiate(_items[0], path, Quaternion.identity);
-
+         return;
+      }
       if (randomItem > 25 && randomItem < 61) //Coin
+      {
          Instantiate(_items[1], path, Quaternion.identity);
-
+         return;
+      }
       if (randomItem > 60 && randomItem < 93) // Enemy
+      {
          Instantiate(_items[2], path, Quaternion.identity);
-
+         return;
+      }
       if (randomItem > 92 && randomItem < 96) //Box
+      {
          Instantiate(_items[3], path, Quaternion.identity);
-
+         return;
+      }
       if (randomItem > 95 && randomItem < 101) //Ammo
+      {
          Instantiate(_items[4], path, Quaternion.identity);
+         return;
+      }
+   }
+
+   private void StopInstantiate()
+   {
+      StopAllCoroutines();
    }
 }

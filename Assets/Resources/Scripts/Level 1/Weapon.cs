@@ -11,11 +11,13 @@ public class Weapon : MonoBehaviour
    private void Start()
    {
       GlobalEventManager.OnAmmoPickedUp += PickUpAmmo;
+      GlobalEventManager.OnPlayerDied += StopShoot;
    }
 
    private void OnDisable()
    {
       GlobalEventManager.OnAmmoPickedUp -= PickUpAmmo;
+      GlobalEventManager.OnPlayerDied -= StopShoot;
    }
 
    void Update()
@@ -46,5 +48,10 @@ public class Weapon : MonoBehaviour
       Instantiate(_bullet, _shot.transform.position, _shot.transform.rotation);
       _ammo--;
       GlobalEventManager.SendAmmoChanged();
+   }
+
+   private void StopShoot()
+   {
+      Destroy(this);
    }
 }
