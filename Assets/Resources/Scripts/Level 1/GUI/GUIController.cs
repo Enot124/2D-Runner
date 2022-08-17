@@ -1,13 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class GUI : MonoBehaviour
+public class GUIController : MonoBehaviour
 {
-   public static int CoinCount;
-   public Text textScore, coinCollected, textHighscore;
-   private int _score, _highscore;
-   private GameObject _deathScreen;
-   public Text ammoCount;
+   private int _score;
+   private int _highscore;
+   private int _coinCount;
+
+   [SerializeField] private TextMeshProUGUI _textScore;
+   [SerializeField] private TextMeshProUGUI _textCoin;
+   [SerializeField] private TextMeshProUGUI _textHighscore;
+   [SerializeField] private TextMeshProUGUI _textAmmo;
+   [SerializeField] private GameObject _deathScreen;
 
    [SerializeField] private Image[] hearts;
    [SerializeField] private Sprite aliveHeart;
@@ -35,37 +40,39 @@ public class GUI : MonoBehaviour
 
       }*/
 
-
    private void Awake()
    {
-      Reset();
-      if (PlayerPrefs.HasKey("Save score"))
-         _highscore = PlayerPrefs.GetInt("Save score");
+      GlobalEventManager.OnCoinPickedUp += AddCoin;
+   }
+   private void OnDisable()
+   {
+      GlobalEventManager.OnCoinPickedUp -= AddCoin;
    }
 
    private void Update()
    {
       AddScore();
-      textScore.text = _score.ToString();
-      textHighscore.text = "Highscore: " + _highscore.ToString();
-      coinCollected.text = CoinCount.ToString();
    }
+
+   private void AddCoin()
+   {
+      _coinCount++;
+      _textCoin.text = _coinCount.ToString();
+   }
+
    private void AddScore()
    {
       _score++;
+      _textScore.text = _score.ToString();
       HighScore();
    }
 
    private void HighScore()
    {
       if (_score > _highscore)
+      {
          _highscore = _score;
-
-      PlayerPrefs.SetInt("Save score", _highscore);
-   }
-
-   private void Reset()
-   {
-      _score = CoinCount = 0;
+         _textHighscore.text = "Highscore: " + _highscore.ToString();
+      }
    }
 }
