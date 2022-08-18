@@ -10,7 +10,6 @@ public static class GlobalEventManager
 
    public static Action OnCoinPickedUp;
    public static Action OnHealthChanged;
-   public static Action OnScoreAchieved;
    public static Action OnPlayerDied;
 
    public static void SendAmmoPickedUp()
@@ -41,11 +40,6 @@ public static class GlobalEventManager
    public static void SendHealthChanged()
    {
       OnHealthChanged?.Invoke();
-   }
-
-   public static void SendScoreAchieved()
-   {
-      OnScoreAchieved?.Invoke();
    }
 
    public static void SendPlayerDied()
