@@ -3,17 +3,18 @@ using TMPro;
 
 public class ScoreCountGUI : MonoBehaviour
 {
-   public static float s_speed = 1f;
+   [SerializeField] private TextMeshProUGUI _textScore;
+   [SerializeField] private TextMeshProUGUI _textHighscore;
    private const int SCORE_STAGE = 1000;
    private int _score;
    private int _highscore;
    private bool _isDied;
-   [SerializeField] private TextMeshProUGUI _textScore;
-   [SerializeField] private TextMeshProUGUI _textHighscore;
+   public static float s_speed = 1f;
 
    private void Awake()
    {
       GlobalEventManager.OnPlayerDied += StopScore;
+      ReadKey();
    }
 
    private void OnDisable()
@@ -54,5 +55,18 @@ public class ScoreCountGUI : MonoBehaviour
    private void StopScore()
    {
       _isDied = true;
+      SetKey();
+   }
+
+   private void ReadKey()
+   {
+      if (PlayerPrefs.HasKey("HighScore"))
+         _highscore = PlayerPrefs.GetInt("HighScore");
+      _textHighscore.text = "Highscore: " + _highscore.ToString();
+   }
+
+   private void SetKey()
+   {
+      PlayerPrefs.SetInt("HighScore", _highscore);
    }
 }

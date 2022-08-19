@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class PlayerLivesGUI : MonoBehaviour
 {
    [SerializeField] private Player _player;
-   [SerializeField] private Image[] hearts;
-   [SerializeField] private Sprite aliveHeart;
-   [SerializeField] private Sprite deadHeart;
+   [SerializeField] private Image[] _hearts;
+   [SerializeField] private Sprite _aliveHeart;
+   [SerializeField] private Sprite _deadHeart;
 
    private void Awake()
    {
@@ -20,12 +20,12 @@ public class PlayerLivesGUI : MonoBehaviour
 
    private void SetLives()
    {
-      for (int i = hearts.Length; i > 0; i--)
+      for (int i = _hearts.Length; i > 0; i--)
       {
          if (i > _player.Lives)
-            hearts[i - 1].sprite = deadHeart;
+            _hearts[i - 1].sprite = _deadHeart;
          else
-            hearts[i - 1].sprite = aliveHeart;
+            _hearts[i - 1].sprite = _aliveHeart;
       }
    }
 }

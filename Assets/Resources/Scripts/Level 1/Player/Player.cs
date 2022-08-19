@@ -4,7 +4,6 @@ public class Player : MonoBehaviour, IHaveHealth
 {
    private int _lives = 3;
    private Animator _animator;
-
    public int Lives { get => _lives; set => _lives = value; }
 
    private void Awake()

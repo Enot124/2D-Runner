@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+   [SerializeField] private Transform _shot;
+   [SerializeField] private GameObject _bullet;
    private const int AMMO_COUNT = 5;
    internal readonly int _fullAmmo = 20;
    internal int _ammo = 0;
-   [SerializeField] private Transform _shot;
-   [SerializeField] private GameObject _bullet;
 
    private void Start()
    {

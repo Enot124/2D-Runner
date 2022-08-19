@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class SwipeController : MonoBehaviour
 {
-   public static bool swipeUp, swipeDown;
-   public static bool isTouch = false;
-   private bool isDraging = false;
+   private bool _isDraging = false;
    private Vector2 _startTouch;
    private Vector2 _swipeDelta;
    private DateTime _dtStart = DateTime.UtcNow;
    private readonly TimeSpan _touchDelay = TimeSpan.FromMilliseconds(100);
+   public static bool swipeUp, swipeDown;
+   public static bool isTouch = false;
 
    private void Update()
    {
@@ -19,14 +19,14 @@ public class SwipeController : MonoBehaviour
       if (Input.GetMouseButtonDown(0))
       {
          _dtStart = DateTime.UtcNow;
-         isDraging = true;
+         _isDraging = true;
          _startTouch = Input.mousePosition;
       }
       else if (Input.GetMouseButtonUp(0))
       {
          if (DateTime.UtcNow - _dtStart <= _touchDelay)
             isTouch = true;
-         isDraging = false;
+         _isDraging = false;
          Reset();
       }
       #endregion
@@ -36,13 +36,13 @@ public class SwipeController : MonoBehaviour
       {
          if (Input.touches[0].phase == TouchPhase.Began)
          {
-            isDraging = true;
+            _isDraging = true;
             _startTouch = Input.touches[0].position;
             _dtStart = DateTime.UtcNow;
          }
          else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
          {
-            isDraging = false;
+            _isDraging = false;
             if (DateTime.UtcNow - _dtStart <= _touchDelay)
                isTouch = true;
             Reset();
@@ -51,7 +51,7 @@ public class SwipeController : MonoBehaviour
       #endregion
 
       _swipeDelta = Vector2.zero;
-      if (isDraging)
+      if (_isDraging)
       {
          if (Input.touches.Length < 0)
             _swipeDelta = Input.touches[0].position - _startTouch;
@@ -73,6 +73,6 @@ public class SwipeController : MonoBehaviour
    private void Reset()
    {
       _startTouch = _swipeDelta = Vector2.zero;
-      isDraging = false;
+      _isDraging = false;
    }
 }
