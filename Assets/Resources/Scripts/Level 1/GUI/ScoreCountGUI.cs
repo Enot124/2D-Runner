@@ -9,12 +9,13 @@ public class ScoreCountGUI : MonoBehaviour
    private int _score;
    private int _highscore;
    private bool _isDied;
-   public static float s_speed = 1f;
+   public static float s_speed;
 
    private void Awake()
    {
       GlobalEventManager.OnPlayerDied += StopScore;
       ReadKey();
+      s_speed = 1f;
    }
 
    private void OnDisable()

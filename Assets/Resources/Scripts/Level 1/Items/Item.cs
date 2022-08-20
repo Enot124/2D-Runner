@@ -24,7 +24,7 @@ public class Item : MonoBehaviour, ICanMove
       _rigidbody = GetComponent<Rigidbody2D>();
    }
 
-   private void Update()
+   private void FixedUpdate()
    {
       MoveItem.Move(this, Direction);
    }
