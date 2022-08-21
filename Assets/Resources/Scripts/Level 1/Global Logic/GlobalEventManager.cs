@@ -12,6 +12,8 @@ public static class GlobalEventManager
    public static Action OnHealthChanged;
    public static Action OnPlayerDied;
 
+   public static Action OnBoostedSpeed;
+
    public static void SendAmmoPickedUp()
    {
       OnAmmoPickedUp?.Invoke();
@@ -45,5 +47,10 @@ public static class GlobalEventManager
    public static void SendPlayerDied()
    {
       OnPlayerDied?.Invoke();
+   }
+
+   public static void SendBoostedSpeed()
+   {
+      OnBoostedSpeed?.Invoke();
    }
 }

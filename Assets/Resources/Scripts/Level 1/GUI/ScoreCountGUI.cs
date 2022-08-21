@@ -9,13 +9,12 @@ public class ScoreCountGUI : MonoBehaviour
    private int _score;
    private int _highscore;
    private bool _isDied;
-   public static float s_speed;
 
    private void Awake()
    {
       GlobalEventManager.OnPlayerDied += StopScore;
       ReadKey();
-      s_speed = 1f;
+      MoveItem.SubEvent();
    }
 
    private void OnDisable()
@@ -30,7 +29,7 @@ public class ScoreCountGUI : MonoBehaviour
 
       if (_score % SCORE_STAGE == 0)
       {
-         BoostSpeed();
+         GlobalEventManager.SendBoostedSpeed();
       }
    }
 
@@ -48,10 +47,6 @@ public class ScoreCountGUI : MonoBehaviour
       _textHighscore.text = "Highscore: " + _highscore.ToString();
    }
 
-   private void BoostSpeed()
-   {
-      s_speed += 0.1f;
-   }
 
    private void StopScore()
    {

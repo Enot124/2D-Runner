@@ -5,7 +5,7 @@ public class Item : MonoBehaviour, ICanMove
    #region ICanMove
    private protected Rigidbody2D _rigidbody;
    public Rigidbody2D Rigidbody { get => _rigidbody; }
-   private protected Vector2 _direction = new Vector2(-0.1f, 0);
+   private protected Vector2 _direction = new Vector2(-1f, 0);
    public Vector2 Direction { get => _direction; set => _direction = value; }
    #endregion ICanMove
 
